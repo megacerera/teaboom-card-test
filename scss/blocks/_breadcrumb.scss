@@ -1,0 +1,51 @@
+@use '../global/variables' as v;
+
+.breadcrumb {
+    margin: 16px 0;
+
+    &__list {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        display: inline-flex;
+        align-items: start;
+        flex-shrink: 0;
+        padding: 0 8px 0 4px;
+
+
+        &:not(:first-child)::before {
+            content: "-";
+            margin-right: 8px;
+            color: v.$color-light-gray;
+        }
+    }
+
+    &__link {
+        color: v.$color-dim-gray;
+        transition: color v.$transition-300;
+
+        &:hover {
+            color: v.$color-black;
+        }
+
+        &[aria-current="page"] {
+            color: v.$color-black;
+            pointer-events: none;
+        }
+    }
+
+}

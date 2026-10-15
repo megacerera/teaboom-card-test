@@ -1,0 +1,13 @@
+@use 'variables' as v;
+
+@mixin vp-768 {
+  @media (min-width: v.$vp-tablet) {
+    @content;
+  }
+}
+
+@mixin vp-1200 {
+  @media (min-width: v.$vp-desktop) {
+    @content;
+  }
+}

@@ -1,0 +1,191 @@
+@use '../global/variables' as v;
+@use '../global/mixins' as *;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 40px 0;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 0 30px;
+    margin: 40px 0 60px 0;
+  }
+
+  @include vp-1200 {
+    margin: 40px 0 80px 0;
+  }
+
+  &__category {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 18px;
+
+    @include vp-768 {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: v.$color-black;
+
+    @include vp-768 {
+      grid-column: 1 / -1;
+      margin: 0 0 30px 0;
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  &__picture {
+    margin: 0 0 24px 0;
+    background-color: v.$color-whisper;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__packs {
+    min-width: 0;
+    margin: 0 0 16px 0;
+    padding: 0;
+    border: none;
+  }
+
+  &__packs-title {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: 600;
+    color: v.$color-black;
+  }
+
+  &__packs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__pack {
+    display: block;
+    padding: 7px 15px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: v.$color-dim-gray;
+    border: 1px solid v.$color-light-gray;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: color v.$transition-300, background-color v.$transition-300, border-color v.$transition-300;
+
+    @include vp-1200 {
+      padding: 9px 25px;
+    }
+
+    &:hover {
+      color: v.$color-black;
+      border-color: v.$color-yellow;
+    }
+  }
+
+  &__pack-input:checked + &__pack {
+    color: v.$color-black;
+    background-color: v.$color-yellow;
+    border-color: v.$color-yellow;
+  }
+
+  &__pack-input:focus-visible + &__pack {
+    outline: 2px solid v.$color-black;
+    outline-offset: 2px;
+  }
+
+  &__sku {
+    margin: 0 0 8px 0;
+    color: v.$color-dim-gray;
+  }
+
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 16px;
+    margin: 0 0 20px 0;
+  }
+
+  &__old-price {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    color: v.$color-dim-gray;
+  }
+
+  &__price {
+    margin: 0;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    color: v.$color-black;
+
+    @include vp-1200 {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  &__cart {
+    width: 100%;
+    margin: 0 0 24px 0;
+    padding: 10px 30px;
+    font-weight: 700;
+     -size: 14px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: v.$color-charcoal;
+    background-color: v.$color-yellow;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: color v.$transition-300, background-color v.$transition-300;
+
+    @include vp-768 {
+      align-self: flex-start;
+      width: auto;
+      min-width: 200px;
+    }
+
+    &:hover {
+      color: v.$color-yellow;
+      background-color: v.$color-black;
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.$color-black;
+      outline-offset: 2px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+  }
+}

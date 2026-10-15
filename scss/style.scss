@@ -1,0 +1,18 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+
+/* Global */
+/* ------------------------------------ */
+@use "global/normalize.scss";
+@use "global/variables";
+@use "global/mixins";
+@use "global/fonts";
+@use "global/reboot";
+@use "global/container";
+@use "global/visually-hidden";
+
+/* Blocks */
+/* ------------------------------------ */
+@use "blocks/breadcrumb";
+@use "blocks/product-card";
